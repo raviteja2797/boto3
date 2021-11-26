@@ -3,6 +3,7 @@
 import boto3
 from pprint import pprint
 from prettytable import PrettyTable
+import time
 
 getprofilelist = ['default']
 session=boto3.session.Session(profile_name="default")
