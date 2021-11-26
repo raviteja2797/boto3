@@ -54,3 +54,16 @@ for item_data in data.keys():
     print("No Table") 
 
 print(eastaccount_table)
+
+for delitem in data.keys():
+  profile = delitem
+  if delitem is 'default':
+    profile = 'default'
+  get_profile_session = boto3.session.Session(profile_name=item_profile)
+  client = get_profile_session.client('elbv2')
+  for deltg in data[delitem]:
+    deltargetgrouparn = deltg[1]
+    deltargetgroupname = deltg[0]
+    #del_targetgroup = response = client.delete_target_group(TargetGroupArn=deltargetgrouparn)
+    #time.sleep(2)
+    print(delitem + " account --- Target Group marked for deletion ===>  " + deltargetgroupname)
